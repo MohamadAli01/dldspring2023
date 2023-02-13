@@ -1,14 +1,15 @@
 `timescale 1ns / 1ps
 module tb ();
 
-   logic        a;
+   logic    a;
    logic 	b;
    logic 	c;
    logic 	y;
-   logic        clk;   
+   logic 	cout;
+   logic   		   clk;   
    
   // instantiate device under test
-   silly dut (a, b, c, y);
+   silly dut (.A(a), .B(b), .Cin(c), .S(y), cout);
 
    // 2 ns clock
    initial 
@@ -21,49 +22,38 @@ module tb ();
    initial
      begin
     
-	#0   a = $random;	
-	#0   b = $random;	
-	#0   c = $random;
+	#0   a = 1'b0;	
+	#0   b = 1'b0;	
+	#0   c = 1'b0;
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;
+	#20  a = 1'b0;	
+	#0   b = 1'b1;	
+	#0   c = 1'b0;
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
+	#20  a = 1'b1;	
+	#0   b = 1'b0;	
+	#0   c = 1'b0;	
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
+	#20  a = 1'b1;	
+	#0   b = 1'b1;	
+	#0   c = 1'b0;	
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
+	#20  a = 1'b0;	
+	#0   b = 1'b0;	
+	#0   c = 1'b1;	
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
+	#20  a = 1'b0;	
+	#0   b = 1'b1;	
+	#0   c = 1'b1;	
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
+	#20  a = 1'b1;	
+	#0   b = 1'b0;	
+	#0   c = 1'b1;	
 
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
-
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
-
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;	
-
-	#20  a = $random;	
-	#0   b = $random;	
-	#0   c = $random;		
+	#20  a = 1'b1;	
+	#0   b = 1'b1;	
+	#0   c = 1'b1;
+		
 	
      end
 
