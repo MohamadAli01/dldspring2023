@@ -26,7 +26,7 @@ if [file exists work] {
 }
 vlib work
 
-# compile source files
+# compile source files    These are the file names you need to change
 vlog silly.sv silly_tb.sv
 
 # start and run simulation
@@ -64,6 +64,6 @@ configure wave -rowmargin 4
 configure wave -childrowmargin 2
 
 -- Run the Simulation
-run 250 ns
+run 4000 ns
 
 

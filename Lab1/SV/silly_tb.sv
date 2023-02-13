@@ -8,7 +8,7 @@ module tb ();
    logic   		   clk;   
    
   // instantiate device under test
-   rc1 dut (.A(a), .B(b), .Cin(c), .S(S));
+   rc1 dut (.a(a), .b(b), .Cin(c), .S(Sum));
    assign Sum_corr=a+b+c;
 
    // 2 ns clock
@@ -27,22 +27,22 @@ initial
 begin
 handle3 = $fopen("rca.out");
 desc3 = handle3;
-#1250 $finish;
+#4000 $finish;
 end
 initial
 begin
-for (i=0; i < 128; i=i+1)
+for (i=0; i < 150; i=i+1)
 begin
 // Put vectors before beginning of clk
 @(posedge clk)
 begin
-A = $random;
-B = $random;
+a = $random;
+b = $random;
 c = $random;
 end
 @(negedge clk)
 begin
-$fdisplay(desc3, "%h %h || %h | %h | %b", A, B, Sum, Sum_correct, (Sum == Sum_corr));
+$fdisplay(desc3, "%h %h || %h | %h | %b", a, b, Sum, Sum_corr, (Sum == Sum_corr));
 end
 end // @(negedge clk)
 end
